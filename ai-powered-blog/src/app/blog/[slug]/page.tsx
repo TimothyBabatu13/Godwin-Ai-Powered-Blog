@@ -130,13 +130,13 @@ npm run dev</code></pre>
   },
 ]
 
-export default async function BlogPost({ params }: { params: {
-  slug: string
-} }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
 
-  const param =  params
-  const slug =  param.slug;
-
+  const { slug } = await params
   const post = blogPosts.find((post) => post.slug === slug)
 
   if (!post) {
@@ -222,7 +222,8 @@ export default async function BlogPost({ params }: { params: {
 
           <article>
             <div
-              className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-gray-900 prose-a:font-medium"
+            className="blog-content" 
+              // className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-gray-900 prose-a:font-medium"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </article>
