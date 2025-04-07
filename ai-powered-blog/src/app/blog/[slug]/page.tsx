@@ -131,11 +131,11 @@ npm run dev</code></pre>
 ]
 
 export default async function BlogPost({ params }: { params: {
-  slug: Promise<string>
+  slug: string
 } }) {
 
-  const param = await params
-  const slug = await param.slug;
+  const param =  params
+  const slug =  param.slug;
 
   const post = blogPosts.find((post) => post.slug === slug)
 
