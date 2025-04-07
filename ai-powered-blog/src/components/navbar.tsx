@@ -32,7 +32,7 @@ export default function Navbar() {
             href="/"
             className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600"
           >
-            Insight
+            ContentLens
           </Link>
 
           {/* Desktop Navigation */}

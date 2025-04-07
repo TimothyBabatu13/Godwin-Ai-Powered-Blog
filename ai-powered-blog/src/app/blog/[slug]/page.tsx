@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import RelatedPosts from "@/components/related-posts"
 import { BookMarkButton, ShareButton } from "./components/Buttons"
+import { CREATOR, TITLE, WEBSITE_URL } from "@/lib/metadata"
 // import AIChatComponent from "@/components/ai-chat-component"
 
 
@@ -130,6 +131,36 @@ npm run dev</code></pre>
     tags: ["Responsive Design", "CSS", "Mobile", "UX Design"],
   },
 ]
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const post = blogPosts.find((post) => post.slug === slug)
+  return{
+     title: `${post?.title} | ${TITLE}`,
+      description: post?.description,
+      twitter: {
+        card: 'summary_large_image',
+        title: post?.title,
+        description: post?.description,
+        siteId: '',
+        creator: CREATOR,
+        images: ''
+      },
+      openGraph : {
+        title: `${post?.title} | ${TITLE}`,
+        description: post?.description,
+        url: WEBSITE_URL,
+        siteName: TITLE,
+        locale: 'en_US',
+        type: 'website',
+        images: ''
+      },
+  }
+}
 
 export default async function BlogPost({
   params,

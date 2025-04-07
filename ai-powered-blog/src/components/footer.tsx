@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-6">
               <h3 className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                Insight
+                ContentLens
               </h3>
             </Link>
             <p className="text-gray-600 mb-6 leading-relaxed">
@@ -119,7 +119,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Insight Blog. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ContentLens Blog. All rights reserved.</p>
         </div>
       </div>
     </footer>
