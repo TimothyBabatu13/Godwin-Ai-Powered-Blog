@@ -92,13 +92,15 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
               Exploring the intersection of design, technology, and creativity through thoughtful articles and insights.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="rounded-full bg-gray-900 hover:bg-gray-800 text-white">
+            <div className="flex items-center justify-center gap-4 place-items-center">
+              <Link href={'#featured--post'} 
+                className="rounded-full inline-block text-center p-4 bg-gray-900 hover:bg-gray-800 text-white"
+              >
                 Latest Articles
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full">
+              </Link>
+              <Link href={'#subscription'} className="rounded-full inline-block p-4 bg-gray-900 hover:bg-gray-800 text-white">
                 Subscribe
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -110,7 +112,7 @@ export default function Home() {
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-16 container mx-auto px-4">
+        <section id="featured--post" className="py-16 container mx-auto px-4">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-3xl font-bold">Featured Post</h2>
             <div className="h-px bg-gray-200 flex-grow mx-6"></div>
@@ -169,8 +171,8 @@ export default function Home() {
               </CardContent>
               <CardFooter className="pt-0 flex justify-between items-center">
                 <div className="text-sm text-gray-500">{post.readTime}</div>
-                <Link href={`/blog/${post.slug}`}>
-                  <Button variant="ghost" size="sm" className="group/btn">
+                <Link className="cursor-pointer" href={`/blog/${post.slug}`}>
+                  <Button variant="ghost" size="sm" className="group/btn cursor-pointer">
                     Read More
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -182,7 +184,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-20 bg-gray-50">
+      <section id="subscription" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>

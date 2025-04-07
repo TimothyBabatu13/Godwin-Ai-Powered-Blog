@@ -121,9 +121,12 @@
   }
 }
 
+body {
+  scroll-behavior: smooth;
+}
 
 .blog-content {
-  @apply text-gray-700 leading-relaxed;
+  @apply text-gray-700 leading-relaxed ;
 }
 
 
@@ -209,3 +212,31 @@
   @apply text-sm text-gray-500 text-center mt-2;
 }
 
+@keyframes zoom-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+::view-transition-old(page) {
+  animation: zoom-out 0.3s ease-in-out;
+}
+
+::view-transition-new {
+  animation: zoom-in 0.3s ease-in-out;
+}

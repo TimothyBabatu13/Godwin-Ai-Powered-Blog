@@ -33,8 +33,8 @@ export default function FeaturedPost({ post }: { post: Post }) {
         </div>
         <h3 className="text-3xl font-bold mb-4 leading-tight">{post.title}</h3>
         <p className="text-gray-600 mb-6 leading-relaxed">{post.description}</p>
-        <Link href={`/blog/${post.slug}`}>
-          <Button className="group rounded-full bg-gray-900 hover:bg-gray-800">
+        <Link className="cursor-pointer" href={`/blog/${post.slug}`}>
+          <Button className="group cursor-pointer rounded-full bg-gray-900 hover:bg-gray-800">
             Read Article
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>

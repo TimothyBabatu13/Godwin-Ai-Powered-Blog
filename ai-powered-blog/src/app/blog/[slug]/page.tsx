@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation"
-import { ArrowLeft, Calendar, Clock, Share2, Bookmark } from "lucide-react"
+import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import RelatedPosts from "@/components/related-posts"
+import { BookMarkButton, ShareButton } from "./components/Buttons"
 // import AIChatComponent from "@/components/ai-chat-component"
 
 
@@ -153,11 +154,11 @@ export default async function BlogPost({
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-10 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-5"></div>
         <div className="container mx-auto px-4 relative">
-          <Link href="/">
-            <Button variant="ghost" className="mb-8 pl-0 hover:bg-transparent group">
+          <Link className="cursor-pointer" href="/">
+            <Button variant="ghost" className="mb-8 pl-0 cursor-pointer hover:bg-transparent group">
               <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to all posts
             </Button>
@@ -210,14 +211,16 @@ export default async function BlogPost({
       <section className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-end mb-6 space-x-2">
-            <Button variant="outline" size="sm" className="rounded-full">
+            <ShareButton />
+            <BookMarkButton />
+            {/* <Button variant="outline" size="sm" className="rounded-full">
               <Share2 className="h-4 w-4 mr-2" />
               Share
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
+            </Button> */}
+            {/* <Button variant="outline" size="sm" className="rounded-full">
               <Bookmark className="h-4 w-4 mr-2" />
               Save
-            </Button>
+            </Button> */}
           </div>
 
           <article>
