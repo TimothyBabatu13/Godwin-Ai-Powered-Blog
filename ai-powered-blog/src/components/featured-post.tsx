@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { blogPosts } from "@/lib/blog-data"
 
 interface Post {
   id: string
@@ -44,3 +45,22 @@ export default function FeaturedPost({ post }: { post: Post }) {
   )
 }
 
+export const FeaturedPosts = () => {
+  const featuredPost = blogPosts.find((post) => post.featured)
+  return (
+    <>
+      {featuredPost && (
+      <section id="featured--post" className="py-16 container mx-auto px-4">
+        <div className="flex items-center justify-between mb-12">
+          <h2 className="text-3xl font-bold">Featured Post</h2>
+          <div className="h-px bg-gray-200 flex-grow mx-6"></div>
+          <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+            View All
+          </Link>
+        </div>
+        <FeaturedPost post={featuredPost} />
+      </section>
+  )}
+    </>
+  )
+}
