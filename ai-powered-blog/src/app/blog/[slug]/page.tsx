@@ -153,14 +153,6 @@ export default async function BlogPost({
           <div className="flex justify-end mb-6 space-x-2">
             <ShareButton id={slug}/>
             <BookMarkButton id={slug}/>
-            <Button variant="outline" size="sm" className="rounded-full">
-              <Share2 className="h-4 w-4 mr-2" />
-              Share
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
-              <Bookmark className="h-4 w-4 mr-2" />
-              Save
-            </Button>
           </div>
 
           <article>
