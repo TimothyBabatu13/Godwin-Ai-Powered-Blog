@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled ? "bg-white z-10 shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -63,21 +63,21 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center space-x-2 md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="cursor-pointer"  
+            >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-950 border-t">
+        <div className={`md:hidden bg-white dark:bg-gray-950 border-t transition-all`} >
           <div className="container mx-auto px-4 py-4 space-y-2">
             <Link
               href="/"

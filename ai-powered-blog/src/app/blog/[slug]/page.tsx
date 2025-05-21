@@ -242,8 +242,8 @@ export default async function BlogPost({
       <section className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-end mb-6 space-x-2">
-            <ShareButton />
-            <BookMarkButton />
+            <ShareButton id={slug}/>
+            <BookMarkButton id={slug}/>
             {/* <Button variant="outline" size="sm" className="rounded-full">
               <Share2 className="h-4 w-4 mr-2" />
               Share

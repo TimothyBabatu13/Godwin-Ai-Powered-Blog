@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button"
 import { FeaturedPosts } from "@/components/featured-post"
 import { RegularPost } from "@/components/regular-post"
 
-export default function Home() {
+export default  function Home() {  
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}

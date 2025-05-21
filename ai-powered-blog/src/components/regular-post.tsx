@@ -6,7 +6,22 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "./ui/badge"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { formatDate } from "@/lib/formatDate";
+
+interface Article {
+  id: number;
+  title: string;
+  slug: string;
+  author: string;
+  description: string;
+  content: string;
+  image: string;
+  date: string; // ISO date string (e.g., "2025-04-26T13:24:36")
+  published: string; // If you expect a boolean, change to `boolean`
+  readTime: string;  // e.g. "12 min"
+  category: string;
+}
 
 interface postType {
     post: {
@@ -69,6 +84,30 @@ export const RegularPost = () => {
     const regularPosts = blogPosts.filter((post) => !post.featured);
     const [activeBlog, setIsActiveBlog] = useState<handleFilterBlogType>('all');
     const [regularPostData, setRegularPostData] = useState<typeof blogPosts>(regularPosts);
+
+  
+    const fetchData = async () => {
+      // const params = {
+      //   q: 'health',
+      //   neural: 'True',
+      // };
+      // const uuu = `https://content.skoutwatch.com/api/v1/ai-search?${new URLSearchParams(params)}`;
+
+      // console.log(uuu);
+
+      const url =  await fetch(`https://content.skoutwatch.com/api/v1/`);
+      const res =  await url.json();
+      const data = res.map((item: Article) => ({
+        ...item,
+        date: formatDate(item.date)
+      }))
+      console.log(data)
+      setRegularPostData(data)
+    }
+
+    useEffect(()=>{
+      fetchData();
+    }, [])
 
     const handleFilterBlog = (category : handleFilterBlogType) => {
         let data : null | typeof blogPosts = null

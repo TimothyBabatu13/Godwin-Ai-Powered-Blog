@@ -3,8 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { Bookmark, Share2 } from "lucide-react";
 
-export const ShareButton = () => {
+export const ShareButton = ({ id }: {
+    id: string
+}) => {
     const handleShare = () => {
+        console.log(id)
         navigator.share({title: '', text: '', url: ''})
     }
     return(
@@ -20,9 +23,11 @@ export const ShareButton = () => {
     )
 }
 
-export const BookMarkButton = () => {
+export const BookMarkButton = ({ id } : {
+    id: string
+}) => {
     const handleBookMark = () => {
-        console.log('...bookmarking')
+        console.log('...bookmarking with id:', id)
         return;
     }
     return(

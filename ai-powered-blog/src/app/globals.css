@@ -212,6 +212,7 @@ body {
   @apply text-sm text-gray-500 text-center mt-2;
 }
 
+
 @keyframes zoom-out {
   from {
     transform: scale(1);
