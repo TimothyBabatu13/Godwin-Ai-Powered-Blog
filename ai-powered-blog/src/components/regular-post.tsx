@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react";
 import { formatDate } from "@/lib/formatDate";
 
-interface Article {
+export interface Article {
   id: number;
   title: string;
   slug: string;
@@ -17,9 +17,9 @@ interface Article {
   description: string;
   content: string;
   image: string;
-  date: string; // ISO date string (e.g., "2025-04-26T13:24:36")
-  published: string; // If you expect a boolean, change to `boolean`
-  readTime: string;  // e.g. "12 min"
+  date: string;
+  published: string;
+  readTime: string;
   category: string;
 }
 
@@ -66,7 +66,7 @@ const PostCard = ( { post } : postType) => {
               </CardContent>
               <CardFooter className="pt-0 flex justify-between items-center">
                 <div className="text-sm text-gray-500">{post.readTime}</div>
-                <Link className="cursor-pointer" href={`/blog/${post.slug}`}>
+                <Link className="cursor-pointer" href={`/blog/${post.id}`}>
                   <Button variant="ghost" size="sm" className="group/btn cursor-pointer">
                     Read More
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -101,7 +101,6 @@ export const RegularPost = () => {
         ...item,
         date: formatDate(item.date)
       }))
-      console.log(data)
       setRegularPostData(data)
     }
 
